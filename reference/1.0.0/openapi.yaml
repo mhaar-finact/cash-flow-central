@@ -27,16 +27,13 @@
 # are granted or extended by this work or 
 # the delivery of this work
 ################################################################################
-
 openapi: 3.0.2
 info:
   title: Dev Portal Tenant APIs.
-  description: To onboard properly into the Fiserv Developer Studio as a tenant each
-    product must support these APIs so that we can retrieve product specific API specifications
-    and documentation.
+  description: To onboard properly into the Fiserv Developer Studio as a tenant each product must support these APIs so that we can retrieve product specific API specifications and documentation.
   version: 1.0.0
 servers:
-  - url: https://tenants.fiserv.com/
+  - url: 'https://tenants.fiserv.com/'
 paths:
   /v1/products:
     get:
@@ -44,11 +41,11 @@ paths:
         - Tenant
       x-group-name: Tenant
       x-proxy-name: products
-      summary: Returns tenant provider API.
+      summary: Returns tenant provider API. TEST
       operationId: TenantProviderID
       responses:
-        200:
-          description: Tenant provider response. <a href="https://fiserv.com" rel="noopener noreferrer" target="_blank">external link</a> <a href="../docs?path=docs/getting-started/setup-tenant/setup-tenant.md">Setup Tenant</a>
+        '200':
+          description: 'Tenant provider response. <a href="https://fiserv.com" rel="noopener noreferrer" target="_blank">external link</a> <a href="../docs?path=docs/getting-started/setup-tenant/setup-tenant.md">Setup Tenant</a>'
           content:
             application/json:
               schema:
@@ -75,8 +72,8 @@ paths:
               $ref: '#/components/schemas/SpecsFilterRequest'
         required: false
       responses:
-        200:
-          description: ""
+        '200':
+          description: ''
           content: {}
       x-codegen-request-body-name: Body
   /v1/docs:
@@ -95,8 +92,8 @@ paths:
           required: true
           description: Markdown document path
       responses:
-        200:
-          description: ""
+        '200':
+          description: ''
           content: {}
       x-codegen-request-body-name: Body
   /v1/layouts:
@@ -108,7 +105,7 @@ paths:
       summary: Returns the product page layout.
       operationId: LayoutAPIId
       responses:
-        200:
+        '200':
           description: This text will appear as description of your response body.
           content:
             application/json:
@@ -128,27 +125,26 @@ paths:
       x-proxy-name: live
       summary: Health check probes.
       operationId: healthCheckId
-      x-links: 
-        link1: 
+      x-links:
+        link1:
           description: Developer Studio
           flag: external
-          url:  'https://dev-developerstudio.fiserv.com/'
-        link2: 
+          url: 'https://dev-developerstudio.fiserv.com/'
+        link2:
           description: Setup tenant
           flag: internal
-          url:  '../docs?path=docs/getting-started/setup-tenant/setup-tenant.md'
-        link3: 
+          url: ../docs?path=docs/getting-started/setup-tenant/setup-tenant.md
+        link3:
           description: Fiserv Portal
           flag: external
-          url:  'https://fiserv.com'
+          url: 'https://fiserv.com'
       responses:
-        200:
+        '200':
           description: Health check.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/LiveProbeResponse'
-  
 components:
   schemas:
     LiveProbeResponse:
@@ -299,7 +295,7 @@ components:
           properties:
             apiSpecification:
               type: string
-              description: APISpecification 
+              description: APISpecification
             description:
               type: string
               description: Description
@@ -324,7 +320,7 @@ components:
           description: Title
   responses:
     apiSpecResponseWrapper:
-      description: OpenAPI Spec for the APIs. 
+      description: OpenAPI Spec for the APIs.
       content: {}
     docsResponseWrapper:
       description: Markdown files.
@@ -342,7 +338,7 @@ components:
           schema:
             $ref: '#/components/schemas/LiveProbeResponse'
     productPage:
-      description: This text will appear as description of your response body. 
+      description: This text will appear as description of your response body.
       content:
         application/json:
           schema:
@@ -354,7 +350,7 @@ components:
           schema:
             $ref: '#/components/schemas/PageLayoutResponse'
     tenant:
-      description: This text will appear as description of your response body. 
+      description: This text will appear as description of your response body.
       content:
         application/json:
           schema:
